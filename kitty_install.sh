@@ -1,25 +1,21 @@
 #!/bin/bash
 
-echo "\n📦 A instalar o terminal Kitty..."
+echo "📦 A instalar o terminal Kitty..."
 
 # Instalar o Kitty localmente
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin dest=~/sgoinfre/kitty
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin dest=$HOME/kitty
 
 # Criar alias para o Kitty no .zshrc
 if ! grep -q "alias kitty=" ~/.zshrc; then
-    echo 'alias kitty="setsid /home/rde-fari/sgoinfre/kitty/kitty.app/bin/kitty >/dev/null 2>&1 < /dev/null &"' >> ~/.zshrc
-    echo "✅ Alias 'kitty' criado com sucesso."
+    echo 'alias kitty="setsid $HOME/kitty/kitty.app/bin/kitty >/dev/null 2>&1 < /dev/null &"' >> ~/.zshrc
 fi
 
-# Atualizar o terminal atual com os novos aliases
-echo "\n🔁 A carregar novo ambiente..."
 source ~/.zshrc
 
-echo "\n🚀 Kitty instalado com sucesso!"
-
-# Criar o arquivo de configuração do Kitty com as configurações básicas
 mkdir -p ~/.config/kitty
-wget -O https://imgur.com/a/nyandonut-F6XTGaU > ~/.config/kitty/
+
+cd ~/.config/kitty
+
 cat > ~/.config/kitty/kitty.conf << EOL
 # DeepSeek-inspired Kitty Terminal Theme
 foreground              #e0e0e0
@@ -71,9 +67,6 @@ inactive_tab_foreground #a0a0c0
 inactive_tab_background #2a2a3a
 EOL
 
-# Criar o lançador do Kitty na barra de tarefas
-echo "\n📑 Criando atalho do Kitty no menu de aplicações..."
-
 cat > ~/.local/share/applications/kitty.desktop << EOL
 [Desktop Entry]
 Name=Kitty Terminal
@@ -86,9 +79,4 @@ StartupNotify=false
 Terminal=false
 EOL
 
-# Adicionar permissões de execução ao atalho
 chmod +x ~/.local/share/applications/kitty.desktop
-
-clear
-echo "\n🎉 Ambiente pronto! Usa 'kitty' para o terminal personalizado e encontra o atalho do Kitty no menu de aplicações."
-echo "\n👾 Enter \"~/.local/share/applications/kitty.desktop\" to change the kitty terminal icon."
