@@ -19,48 +19,56 @@ echo "\n🚀 Kitty instalado com sucesso!"
 
 # Criar o arquivo de configuração do Kitty com as configurações básicas
 mkdir -p ~/.config/kitty
+wget -O https://imgur.com/a/nyandonut-F6XTGaU > ~/.config/kitty/
 cat > ~/.config/kitty/kitty.conf << EOL
-# Tema base
-foreground #f8f8f2
-background #1e1e2e
-selection_background #44475a
-selection_foreground #ffffff
-cursor #ffcc00
+# DeepSeek-inspired Kitty Terminal Theme
+foreground              #e0e0e0
+background              #1a1a2a
+selection_foreground    #ffffff
+selection_background    #3a3a5a
 
-# Cores da paleta
-color0  #000000
-color1  #ff5555
-color2  #50fa7b
-color3  #f1fa8c
-color4  #bd93f9
-color5  #ff79c6
-color6  #8be9fd
-color7  #bbbbbb
-color8  #44475a
-color9  #ff6e6e
-color10 #69ff94
-color11 #ffffa5
-color12 #d6acff
-color13 #ff92df
-color14 #a4ffff
-color15 #ffffff
+# Black
+color0                  #1a1a2a
+color8                  #4a4a6a
 
-# Fonte
-font_family      JetBrainsMono Nerd Font
-bold_font        auto
-italic_font      auto
-font_size        12.5
+# Red
+color1                  #ff6e6e
+color9                  #ff9e9e
 
-# Espaçamento
-line_spacing     1
-letter_spacing   0
+# Green
+color2                  #5dffa8
+color10                 #8dffc8
 
-# Transparência
-background_opacity 0.9
+# Yellow
+color3                  #ffcc66
+color11                 #ffe699
 
-# Comportamento
-enable_audio_bell no
-tab_bar_edge bottom
+# Blue
+color4                  #6ea3ff
+color12                 #9ec3ff
+
+# Magenta
+color5                  #c97fff
+color13                 #e0a3ff
+
+# Cyan
+color6                  #66d9ff
+color14                 #99e6ff
+
+# White
+color7                  #e0e0e0
+color15                 #ffffff
+
+# Cursor & UI
+cursor                  #6ea3ff
+cursor_text_color       #1a1a2a
+url_color               #6ea3ff
+
+# Tab bar
+active_tab_foreground   #1a1a2a
+active_tab_background   #6ea3ff
+inactive_tab_foreground #a0a0c0
+inactive_tab_background #2a2a3a
 EOL
 
 # Criar o lançador do Kitty na barra de tarefas
@@ -71,7 +79,7 @@ cat > ~/.local/share/applications/kitty.desktop << EOL
 Name=Kitty Terminal
 Comment=Fast, feature-rich, GPU based terminal
 Exec=setsid /home/rde-fari/sgoinfre/kitty/kitty.app/bin/kitty
-Icon=/home/rde-fari/sgoinfre/kitty/kitty.app/share/icons/hicolor/256x256/apps/kitty.png
+Icon=~/.config/kitty/'NyanDonut - Imgur.png'
 Type=Application
 Categories=System;TerminalEmulator;
 StartupNotify=false

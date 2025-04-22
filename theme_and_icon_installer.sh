@@ -11,12 +11,8 @@
 
 echo "Starting installation..."
 
-# Install dependencies
-sudo apt update
-sudo apt install -y gnome-tweaks gtk2-engines-murrine gtk2-engines-pixbuf git unzip
-
 # Create themes/icons directories if missing
-mkdir -p ~/.themes ~/.local/share/icons
+mkdir -p ~/.themes ~/.icons
 
 # Download and install Midnight-Green theme
 echo "Installing Midnight-Green theme..."
@@ -50,13 +46,11 @@ gsettings set org.gnome.desktop.interface icon-theme "Tela-green"
 
 # Enable User Themes extension (for Shell theme)
 if ! gnome-extensions list | grep -q "user-theme@gnome-shell-extensions.gcampax.github.com"; then
-  sudo apt install -y gnome-shell-extensions
   gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
 fi
 
 # Refresh icon cache
 echo "Refreshing icon cache..."
-sudo update-icon-caches /usr/share/icons/*
 gtk-update-icon-cache
 
 echo "Done! Log out and back in to see changes."
