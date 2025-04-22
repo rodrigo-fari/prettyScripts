@@ -121,6 +121,8 @@ if [ ! -d "$HOME/MIOW/vscode" ]; then
     mkdir "$HOME/MIOW/vscode"
 fi
 
+echo "alias code='$HOME/MIOW/vscode/bin/code'" >> $HOME/.zshrc
+
 cp -rvfd VSCode-linux-x64/* "$HOME/MIOW/vscode"
 
 rm -r code-stable-x64.tar.gz VSCode-linux-x64

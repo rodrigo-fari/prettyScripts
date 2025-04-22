@@ -11,11 +11,11 @@ function rain() {
     for ((i=0; i<$cols; i++)); do
       rand_char=${chars[$RANDOM % ${#chars[@]}]}
       rand_row=$((RANDOM % rows))
-      tput setaf 1
+      tput setaf 2
       tput cup $rand_row $i
       echo -n "$rand_char"
     done
-    sleep 0.01
+    sleep 0.02
   done
 }
 
