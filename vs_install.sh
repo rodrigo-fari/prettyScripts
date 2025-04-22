@@ -1,9 +1,43 @@
 #!/bin/zsh
 
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin dest=$HOME/kitty
+if [ ! -d "~/.themes" ]; then
+    mkdir "~/.themes"
+fi
+
+if [ ! -d "~/.icons" ]; then
+    mkdir "~/.icons"
+fi
+
+if [ ! -d ~/.themes/Midnight-Green ]; then
+  wget https://github.com/vinceliuice/Midnight-Green-theme/archive/master.zip -O /tmp/Midnight-Green.zip
+  unzip -q /tmp/Midnight-Green.zip -d /tmp/
+  mv /tmp/Midnight-Green-theme-master ~/.themes/Midnight-Green
+  rm /tmp/Midnight-Green.zip
+fi
+
+if [ ! -d ~/.local/share/icons/Tela-green ]; then
+  wget https://github.com/vinceliuice/Tela-icon-theme/archive/master.zip -O /tmp/Tela-icons.zip
+  unzip -q /tmp/Tela-icons.zip -d /tmp/
+  cd /tmp/Tela-icon-theme-master
+  ./install.sh -a
+  cd ~
+  rm -rf /tmp/Tela-icon-theme-master /tmp/Tela-icons.zip
+fi
+
+gsettings set org.gnome.desktop.interface gtk-theme "Midnight-Green"
+gsettings set org.gnome.shell.extensions.user-theme name "Midnight-Green"
+gsettings set org.gnome.desktop.interface icon-theme "Tela-green"
+
+if ! gnome-extensions list | grep -q "user-theme@gnome-shell-extensions.gcampax.github.com"; then
+  gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
+fi
+
+gtk-update-icon-cache
+
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin dest=$HOME/MIOW/kitty
 
 if ! grep -q "alias kitty=" ~/.zshrc; then
-	echo 'alias kitty="setsid $HOME/kitty/kitty.app/bin/kitty >/dev/null 2>&1 < /dev/null &"' >> ~/.zshrc
+    echo 'alias kitty="setsid $HOME/MIOW/kitty/kitty.app/bin/kitty >/dev/null 2>&1 < /dev/null &"' >> ~/.zshrc
 fi
 
 source ~/.zshrc
@@ -83,11 +117,11 @@ wget -O code-stable-x64.tar.gz "https://code.visualstudio.com/sha/download?build
 
 tar -xvf code-stable-x64.tar.gz
 
-if [ ! -d "$HOME/vscode" ]; then
-    mkdir "$HOME/vscode"
+if [ ! -d "$HOME/MIOW/vscode" ]; then
+    mkdir "$HOME/MIOW/vscode"
 fi
 
-cp -rvfd VSCode-linux-x64/* "$HOME/vscode/"
+cp -rvfd VSCode-linux-x64/* "$HOME/MIOW/vscode"
 
 rm -r code-stable-x64.tar.gz VSCode-linux-x64
 
@@ -98,9 +132,14 @@ echo "╔═══════════════════════�
 echo "║               📁 Every thing done!                 ║"
 echo "╠════════════════════════════════════════════════════╣"
 echo "║  🟢 All set, run source ~/.zshrc!                  ║"
-echo "║  ✔️  Alias added!                                  ║"
-echo "║  ✔️  Vscode installed! Run "code"                    ║"
-echo "║  ✔️  Kitty terminal installed! Run "kitty"           ║"
 echo "║                                                    ║"
-echo "║  Please leave a star on github repository! Ty! ❤️  ║"
+echo "║  ✔️  Vscode installed! Run "code"                     ║"
+echo "║  ✔️  Kitty terminal installed! Run "kitty"            ║"
+echo "║  ✔️  Theme installed!                               ║"
+echo "║                                                    ║"
+echo "║  ⚙️  "config"      - Open .zshrc.                     ║"
+echo "║  ⚙️  "restart"     - Restart your terminal.           ║"
+echo "║  ⚙️  "kittyconfig" - Open Kitty settings              ║"
+echo "║                                                    ║"
+echo "║  Please leave a star on github repository! Ty! ❤️   ║"
 echo "╚════════════════════════════════════════════════════╝"
