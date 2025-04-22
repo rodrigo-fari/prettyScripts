@@ -1,0 +1,10 @@
+alias config="vim ~/.zshrc"
+alias restart="source ~/.zshrc"
+alias c="cc -Wall -Wextra -Werror"
+alias open="open ."
+alias rm="rm -rf"
+alias celar="clear"
+alias m="make && ./minishell"
+alias code='(cd "$VSCODESRC" && ./code "$OLDPWD")'
+alias kitty="setsid $KITTYSRC >/dev/null 2>&1 < /dev/null &$"
+alias list="ls | sort"

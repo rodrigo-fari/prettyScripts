@@ -2,17 +2,25 @@
 
 cd ~/Downloads
 
+# Baixar o arquivo .tar.gz do VSCode
 wget -O code-stable-x64.tar.gz "https://code.visualstudio.com/sha/download?build=stable&os=linux-x64"
-# Extract the tar.gz file
+
+# Extrair o arquivo tar.gz
 tar -xvf code-stable-x64.tar.gz
 
-# Create the ~/vscode directory if it doesn't exist
-if [ ! -d ~/sgoinfre/vscode ]; then
-	mkdir ~/sgoinfre/vscode
+# Criar o diretório ~/vscode se não existir
+if [ ! -d "$OLDPWD/vscode" ]; then
+    mkdir "$OLDPWD/vscode"
 fi
 
-# Copy the contents to the ~/vscode directory
-cp -rvfd VSCode-linux-x64/* ~/sgoinfre/vscode/
+# Definir o caminho para o binário do VSCode
+VSCODESRC="$OLDPWD/vscode/bin/"
 
-# Remove the extracted directory and the tar.gz file
+# Criando variavel de ambiente com o path do vscode
+export VSCODESRC
+
+# Copiar os arquivos extraídos para o diretório ~/vscode
+cp -rvfd VSCode-linux-x64/* "$OLDPWD/vscode/"
+
+# Remover os arquivos extraídos e o arquivo .tar.gz
 rm -r code-stable-x64.tar.gz VSCode-linux-x64
