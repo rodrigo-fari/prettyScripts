@@ -1,70 +1,58 @@
-# MATRIX-THEME FOR KITTY TERMINAL
-# -------------------------------
-# Classic green-on-black "digital rain" effect
+# MATRIX THEME FOR KITTY
 
 # Base colors
-foreground              #00FF41  # Neon green
-background              #000000  # Pure black
+foreground              #00FF41
+background              #000000
 selection_foreground    #000000
 selection_background    #00FF41
 
-# Black
+# Standard ANSI colors
 color0                  #000000
-color8                  #0A280A  # Darker green
-
-# Red (unused in Matrix, but defined to avoid clashes)
 color1                  #FF0000
-color9                  #FF5555
-
-# GREEN (Matrix-style)
-color2                  #00FF41  # Neon green
-color10                 #00FF41
-
-# Yellow (unused)
+color2                  #00FF41
 color3                  #FFFF00
-color11                 #FFFF55
-
-# Blue (unused)
 color4                  #0000FF
-color12                 #5555FF
-
-# Magenta (unused)
 color5                  #FF00FF
-color13                 #FF55FF
-
-# Cyan (unused)
 color6                  #00FFFF
-color14                 #55FFFF
-
-# White (unused)
 color7                  #FFFFFF
+
+# Bright versions
+color8                  #0A280A
+color9                  #FF5555
+color10                 #00FF41
+color11                 #FFFF55
+color12                 #5555FF
+color13                 #FF55FF
+color14                 #55FFFF
 color15                 #FFFFFF
 
-# Font (monospace for "code" feel)
+# Font
 font_family             Hack Nerd Font Mono
 bold_font               auto
 italic_font             auto
-font_size               14
+font_size               14.0
 
-# Cursor (green block)
+# Cursor
 cursor                  #00FF41
 cursor_shape            block
 cursor_blink_interval   0.5
 
-# Window (no decorations, minimal)
+# Minimal window look
 hide_window_decorations yes
 window_padding_width    5
 
-# Tabs (dark with green accents)
+# Tabs
 active_tab_foreground   #000000
 active_tab_background   #00FF41
 inactive_tab_foreground #00FF41
 inactive_tab_background #0A280A
 tab_bar_style           powerline
 
-# URL highlighting (green)
+# URL styling
 url_color               #00FF41
 url_style               single
+
+
 
 
 mkdir -p ~/.config/kitty
