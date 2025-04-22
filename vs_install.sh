@@ -2,9 +2,8 @@
 
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin dest=$HOME/kitty
 
-# Criar alias para o Kitty no .zshrc
 if ! grep -q "alias kitty=" ~/.zshrc; then
-    echo 'alias kitty="setsid $HOME/kitty/kitty.app/bin/kitty >/dev/null 2>&1 < /dev/null &"' >> ~/.zshrc
+	echo 'alias kitty="setsid $HOME/kitty/kitty.app/bin/kitty >/dev/null 2>&1 < /dev/null &"' >> ~/.zshrc
 fi
 
 source ~/.zshrc
