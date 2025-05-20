@@ -1,12 +1,14 @@
 {
-  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Theme Darker",
   "files.autoSave": "afterDelay",
   "editor.renderWhitespace": "all",
-  "editor.rulers": [80],
+  "editor.rulers": [
+    80
+  ],
   "editor.insertSpaces": false,
   "editor.tabSize": 4,
   "workbench.sideBar.location": "right",
-  "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
   "editor.lineHeight": 22,
@@ -16,11 +18,7 @@
     "editor.insertSpaces": false
   },
   "C_Cpp.intelliSenseEngine": "default",
-  "C_Cpp.default.includePath": [
-    "${workspaceFolder}/**"
-  ],
   "C_Cpp.default.cStandard": "c11",
-  "C_Cpp.default.compilerPath": "/usr/bin/gcc",
   "C_Cpp.errorSquiggles": "enabled",
   "C_Cpp.clang_format_style": "file",
   "files.associations": {
@@ -38,5 +36,14 @@
     "mathio.vscode-42header",
     "v0x6f.42count-lines",
     "oderwat.indent-rainbow"
-  ]
+  ],
+  "workbench.iconTheme": "material-icon-theme",
+  "makefile.configureOnOpen": true,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": true
+  }
 }
+
