@@ -1,0 +1,26 @@
+[legacy]
+mnemonics-enabled=false
+theme-variant='dark'
+
+[legacy/keybindings]
+copy='<Primary>c'
+paste='<Primary>v'
+reset='<Primary>q'
+reset-and-clear='<Primary>w'
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(37,41,58)'
+background-transparency-percent=20
+bold-is-bright=true
+cursor-colors-set=false
+cursor-foreground-color='rgb(255,255,255)'
+cursor-shape='ibeam'
+default-size-columns=80
+font='Monospace 15'
+foreground-color='rgb(187,188,189)'
+palette=['rgb(0,0,0)', 'rgb(234,80,107)', 'rgb(158,186,119)', 'rgb(205,205,0)', 'rgb(3,155,229)', 'rgb(183,135,217)', 'rgb(0,205,205)', 'rgb(229,229,229)', 'rgb(127,127,127)', 'rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(255,255,0)', 'rgb(92,92,255)', 'rgb(255,0,255)', 'rgb(0,255,255)', 'rgb(255,255,255)']
+use-system-font=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=false
+visible-name='rde-fari'
